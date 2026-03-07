@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.screens.bottomsheet.BottomSheet"
+   app:cardBackgroundColor="@color/blue">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        >
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:id="@+id/imag"
+            android:scaleType="fitXY"
+            app:layout_constraintWidth_percent="0.4"
+
+            android:background="@drawable/rounded_item"/>
+
+        <TextView
+            android:textColor="@color/white"
+            android:id="@+id/userName"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:text="UserName"
+            android:gravity="center|start"
+            android:paddingStart="8dp"
+            android:layout_margin="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/gmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/imag"
+            app:layout_constraintTop_toTopOf="@id/imag"
+            android:background="@drawable/rounded_item"/>
+
+        <TextView
+            android:textColor="@color/white"
+            android:id="@+id/gmail"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:text="aaaaaa@gmail.com"
+            android:gravity="center|start"
+            android:paddingStart="8dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_item"
+            app:layout_constraintBottom_toTopOf="@+id/phoneNumber"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/imag"
+            app:layout_constraintTop_toBottomOf="@+id/userName" />
+
+        <TextView
+            android:textColor="@color/white"
+            android:id="@+id/phoneNumber"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:text="09876545678999998"
+            android:gravity="center|start"
+            android:paddingStart="8dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_item"
+            app:layout_constraintBottom_toBottomOf="@id/imag"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/imag"
+            app:layout_constraintTop_toBottomOf="@+id/gmail" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/imag"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            android:hint="User Name"
+
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/white"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/gm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            android:hint="Gmail"
+            >
+            <EditText
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/gm"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            android:hint="Phone Number"
+            >
+            <EditText
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/but"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/ph"
+            app:backgroundTint="@color/maincolor"
+            android:text="Enter User"
+            android:textColor="@color/black"
+            app:cornerRadius="8dp"
+            android:padding="16dp"
+            android:layout_marginTop="8dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</com.google.android.material.card.MaterialCardView>

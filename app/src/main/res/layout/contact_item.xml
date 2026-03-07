@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardBackgroundColor="@color/maincolor"
+    android:layout_margin="8dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+           <ImageView
+               android:layout_width="0dp"
+               android:id="@+id/mg"
+               android:layout_height="0dp"
+               android:scaleType="fitXY"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintHeight_percent="0.4"
+               android:src="@drawable/ic_launcher_background"
+               app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/rounded_item"
+            android:backgroundTint="@color/maincolor"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/mg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Username" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/user"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@id/mg"
+            android:background="@drawable/rounded_item"
+            android:backgroundTint="@color/maincolor"
+            android:layout_margin="8dp"
+            android:padding="8dp"
+            tools:text="Username"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/gmail"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mg"
+            android:background="@drawable/rounded_item"
+            android:backgroundTint="@color/maincolor"
+            android:layout_margin="8dp"
+            android:padding="8dp"
+            tools:text="Username"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/phon"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gmail"
+            android:background="@drawable/rounded_item"
+            android:backgroundTint="@color/maincolor"
+            android:layout_margin="8dp"
+            android:padding="8dp"
+           tools:text="Username"/>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/red"
+            app:layout_constraintTop_toBottomOf="@id/phon"
+            android:text="Delete"
+            android:id="@+id/deletebut"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:padding="8dp"
+            android:layout_margin="8dp"
+            app:cornerRadius="7dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
