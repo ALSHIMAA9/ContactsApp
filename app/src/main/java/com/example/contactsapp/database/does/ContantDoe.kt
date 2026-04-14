@@ -15,7 +15,7 @@ interface ContantDoe {
     @Query("select * from contantdm")
     fun getAllUser(): List<ContantDM>
 
-    @Query("select * from contantdm where Id=(select Max(Id) from ContantDM)")
-    fun getMaxId(): ContantDM
+    @Query("DELETE  from contantdm where Id=(select Max(Id) from ContantDM)")
+    fun DeleteLastItem()
 
 }

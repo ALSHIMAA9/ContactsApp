@@ -12,6 +12,9 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.FragmentResultListener
+import androidx.lifecycle.LifecycleOwner
 import com.bumptech.glide.Glide
 import com.example.contactsapp.R
 import com.example.contactsapp.database.MyDataBase
@@ -20,7 +23,7 @@ import com.example.contactsapp.databinding.FragmentBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
-class BottomSheet(var onclick:()->Unit) : BottomSheetDialogFragment() {
+class BottomSheet() : BottomSheetDialogFragment() {
    var  selectedImage: Uri? =null
     val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
         if (uri != null) {
@@ -55,15 +58,27 @@ class BottomSheet(var onclick:()->Unit) : BottomSheetDialogFragment() {
 
 
     fun initLisetner() {
+
+        binding.name.editText!!.doOnTextChanged { text, start, before, count ->
+            binding.userName.text=text.toString()
+        }
+        binding.gm.editText!!.doOnTextChanged { text, start, before, count ->
+            binding.gmail.text=text.toString()
+        }
+        binding.ph.editText!!.doOnTextChanged { text, start, before, count ->
+            binding.phoneNumber.text=text.toString()
+        }
+
+
       binding.but.setOnClickListener {
           while(!isvalid())return@setOnClickListener
               MyDataBase.getDataBase().getContantDoe().addUser(ContantDM(UserName = binding.name.editText!!.text.toString(),
                  Gmail =  binding.gm.editText!!.text.toString(), phoneNumber = binding.ph.editText!!.text.toString(),
                   Imag =selectedImage.toString() ))
-          var list= MyDataBase.getDataBase().getContantDoe().getAllUser()
-          Log.e( "initLisetner: ", "list ${list}")
 
-          onclick()
+        //  onclick()
+          parentFragmentManager.setFragmentResult("content", Bundle())
+
           dismiss()
 
 
@@ -81,7 +96,6 @@ class BottomSheet(var onclick:()->Unit) : BottomSheetDialogFragment() {
             flag=false
         }else
         {
-            binding.userName.text=binding.name.editText!!.text
             binding.name.error=null
             flag=true
         }
@@ -92,7 +106,7 @@ class BottomSheet(var onclick:()->Unit) : BottomSheetDialogFragment() {
             flag=false
         }else
         {
-            binding.gmail.text=binding.gm.editText!!.text
+
             binding.gm.error=null
             flag=true
         }
@@ -102,7 +116,6 @@ class BottomSheet(var onclick:()->Unit) : BottomSheetDialogFragment() {
             flag=false
         }else
         {
-            binding.phoneNumber.text=binding.ph.editText!!.text
             binding.ph.error=null
             flag=true
         }
